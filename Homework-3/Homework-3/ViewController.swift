@@ -13,68 +13,63 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        sum(2.3, to: 1.6)
-        sum(6, to: 2, to: 3)
-        sum(30.2, by: 2)
-        let totalSumTupes = sumTupes(23.2, to: 43)
+        add(2.3, to: 1.6)
+        add(6, to: 2, to: 3)
+        division(30.2, by: 2)
+        let totalSumTupes = tupesSum(23.2, to: 43)
         print(totalSumTupes)
         
-        let sumDigits = digitSum(to: 2022)
+        let sumDigits = digitsSum(of: 2022)
         print(sumDigits)
         
-        string("Hello", to: "Hello")
+        compareStrings("Hello", to: "Hello")
         print(power())
         
         let factorial = recursionFactorial(6)
         print(factorial)
-    }
+            }
     
     // 1
     
-    func sum(_ firstNumber: Double, to secondNumber: Double) {
-     print(firstNumber * secondNumber)
-        
+    func add(_ firstNumber: Double, to secondNumber: Double) {
+        print(firstNumber * secondNumber)
     }
     
-    func sum(_ firsNumber: Int,to secondNumber: Int,to thirdNumber: Int ) {
-        print(firsNumber + secondNumber - thirdNumber)
-        
+    func add(_ firsеNumber: Int, to secondNumber: Int,to thirdNumber: Int ) {
+        print(firsеNumber + secondNumber + thirdNumber)
     }
     
-    func sum(_ firstNumber: Float, by secondNumber: Float) {
+    func division(_ firstNumber: Float, by secondNumber: Float) {
         print(firstNumber / secondNumber)
-
     }
 
-    func sumTupes(_ firstNumber: Double, to secondNumber: Int) -> Int {
+    func tupesSum(_ firstNumber: Double, to secondNumber: Int) -> Int {
         return Int(firstNumber) + secondNumber
     }
 
 // 2
     
-    func digitSum(to number: Int) -> Int{
-        if(number < 10) {
-            
+    func digitsSum(of number: Int) -> Int {
+        if number < 10 {
             return number
         } else {
-            
-            return (number % 10) + digitSum(to: (number/10))
+            return number % 10 + digitsSum(of: (number/10))
         }
     }
     
 // 3
     
-    func string(_ firsNumber: String,to secondNumber: String) {
-        if firsNumber == secondNumber{
+    func compareStrings(_ firsNumber: String, to secondNumber: String) {
+        if firsNumber == secondNumber {
             print("indentical")
         } else {
                 print("notIndentical")
-                      }
-        }
+    }
+}
 
 // 4
 
-    func recursion(){
+    func recursion() {
 //    print("1")
     recursion()
     }
@@ -88,12 +83,10 @@ class ViewController: UIViewController {
 
 // 6
 
-func recursionFactorial(_ number: Int) -> Int{
+func recursionFactorial(_ number: Int) -> Int {
     if number == 0  {
-        
         return 1
     } else {
-        
         return number * recursionFactorial(number-1)
     }
 }
