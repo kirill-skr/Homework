@@ -2,19 +2,19 @@ import UIKit
 
 //1
 
-var numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9,]
-var fillterEven = numbersArray.filter{$0 % 2 == 0 }
-print(fillterEven)
-var filterAdd = numbersArray.filter{$0 % 2 != 0 }
+let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9,]
+let filterEven = numbersArray.filter{ $0 % 2 == 0 }
+print(filterEven)
+let filterAdd = numbersArray.filter{ $0 % 2 != 0 }
 print(filterAdd)
 
 //2
 
-let string: [String]? = ["hello", "Swift"]
-if let stringOptionals = string {
+let string: [String?] = ["hello", "Swift"]
 var characters = [Character: Int]()
-for array in stringOptionals {
-    for arrayOptionals in array{
+for array in string {
+    if let array = array {
+    for arrayOptionals in array {
         characters[arrayOptionals, default: 0] += 1
     }
 }
@@ -23,66 +23,70 @@ print(characters)
 
 //3
 
-func addition(firstNumber: Int?, secondNumber: Int?) -> Int? {
+func add(firstNumber: Int?, secondNumber: Int?) -> Int? {
     if let firstNumber = firstNumber,
-       let secondNumber = secondNumber {
+       let secondNumber = secondNumber{
         return firstNumber + secondNumber
        }
     return nil
 }
-addition(firstNumber: 40, secondNumber: 22)
+add(firstNumber: 40, secondNumber: 22)
 
-func takinAway(firstNumber: Int?, secondNumber: Int?) -> Int? {
+func subtract(firstNumber: Int?, secondNumber: Int?) -> Int? {
     guard let firstNumber = firstNumber,
           let secondNumber = secondNumber else {
         return nil
     }
     return firstNumber - secondNumber
 }
-takinAway(firstNumber: 12, secondNumber: 2)
+subtract(firstNumber: 12, secondNumber: 2)
 
-func multiplication(firstNumber: Int?, secondNumber: Int?) -> Int? {
-    let ffirstNumber = firstNumber ?? 0
-    let ssecondNumber = secondNumber ?? 0
-            return ffirstNumber * ssecondNumber
-        }
-multiplication(firstNumber: 2, secondNumber: 23)
+func multiply(firstNumber: Int?, secondNumber: Int?) -> Int? {
+    let firstNumber = firstNumber ?? 0
+    let secondNumber = secondNumber ?? 0
+            return firstNumber * secondNumber
+}
+multiply(firstNumber: 2, secondNumber: 23)
 
-func devision(firstNumber: Double, secondNumber: Double?) -> Double {
+func devide(firstNumber: Double, secondNumber: Double?) -> Double {
     if let secondNumber = secondNumber {
         return firstNumber / secondNumber
        }
     return firstNumber
 }
-devision(firstNumber: 15, secondNumber: 3)
+devide(firstNumber: 15, secondNumber: 3)
 
 func exponention(number: Double?, power: Double) -> Double? {
     guard let exponentionNumber = number else {
         return nil
-    }
+}
     return pow(exponentionNumber, power)
 }
 exponention(number: 5, power: 3)
 
 //4
 
-func check(string: String) -> Bool {
+func checkPalindrome(string: String) -> Bool {
     let checkString = string.lowercased()
     return String(checkString.reversed()) == checkString
 }
-check(string: "mom")
+checkPalindrome(string: "mom")
 
 //
 
-func checkIf(string:String) {
+func check(string: String) {
     let checkString = string.lowercased()
     if String(checkString.reversed()) == checkString {
 print("palindrome")
-    }
-    else{
+}else{
 print("not palindrome")
     }
 }
-checkIf(string: "Too bad I hid a boot")
+check(string: "Too bad I hid a boot")
 
 
+
+let strings: [String]? = ["hello", "Swift"]
+let a = strings == nil
+let d = a * a
+print(d)
